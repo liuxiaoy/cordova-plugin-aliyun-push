@@ -1,12 +1,20 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin
-    xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-aliyun-push" version="0.0.1"
-    xmlns="http://apache.org/cordova/ns/plugins/1.0">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-aliyun-push"
+    version="0.0.1">
     <name>PushPlugin</name>
+
+    <description>AliPush Cordova plugin</description>
+    <author>liuxiaoy</author>
+    <keywords>aliyun, push</keywords>
+    <license>Apache 2.0</license>
+
     <engines>
-        <engine name="cordova-ios" version=">=3.8"></engine>
-        <engine name="cordova-android" version=">=7"></engine>
+        <engine name="cordova-ios" version=">=3.8" />
+        <engine name="cordova-android" version=">=7" />
     </engines>
+
     <js-module name="AliPushPlugin" src="www/AliPushPlugin.js">
         <clobbers target="AliPushPlugin" />
     </js-module>

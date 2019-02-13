@@ -20,13 +20,21 @@
     "aliyun",
     "push"
   ],
-  "author": {
-    "name": "liuxiaoy"
-  },
+  "author": "liuxiaoy",
   "deprecated": false,
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/liuxiaoy/cordova-plugin-aliyun-push"
   },
-  "homepage": "https://github.com/liuxiaoy/cordova-plugin-aliyun-push"
+  "homepage": "https://github.com/liuxiaoy/cordova-plugin-aliyun-push",
+  "engines": [
+    {
+      "name": "cordova-ios",
+      "version": ">=3.8"
+    },
+    {
+      "name": "cordova-android",
+      "version": ">=7"
+    }
+  ]
 }
