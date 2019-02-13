@@ -2,14 +2,14 @@
 
 `APP_KEY和APP_SECRET必须存在`
 
-cordova plugin add https://github.com/llwwbb/cordova-plugin-AliPush.git --variable APP_KEY=appkey --variable APP_SECRET=appsecret --variable MIID=miid --variable MIKEY=mikey --variable GCMSENDID=gcmsendid --variable GCMAPPID=gcmapplicationid
+cordova plugin add cordova-plugin-aliyun-push --variable APP_KEY=appkey --variable APP_SECRET=appsecret --variable MIID=miid --variable MIKEY=mikey --variable GCMSENDID=gcmsendid --variable GCMAPPID=gcmapplicationid
 
 **辅助弹窗**
 
     辅助弹窗可以确保应用后台被清理，仍能收到推送通知
 
     参考阿里云推送文档https://help.aliyun.com/document_detail/30067.html
-    
+
     服务器端需设置AndroidPopupActivity参数为{package-name}.alipush.AliPushActivity
 
 **初始化。**
@@ -32,7 +32,7 @@ cordova plugin add https://github.com/llwwbb/cordova-plugin-AliPush.git --variab
 
 **获取设备DeviceId**
 
-    getDeviceId: function (success, error) 
+    getDeviceId: function (success, error)
 
 **绑定账号**
 
@@ -42,18 +42,18 @@ cordova plugin add https://github.com/llwwbb/cordova-plugin-AliPush.git --variab
 
     同一设备更换绑定账号时无需进行解绑，重新调用绑定账号接口即可覆盖生效；
 
-    bindAccount: function (account, success, error) 
+    bindAccount: function (account, success, error)
 
 **解绑账号**
 
     将应用内账号和推送通道取消关联。
 
-    unbindAccount: function (success, error) 
+    unbindAccount: function (success, error)
 
 **绑定标签**
 
     绑定标签到指定目标；
-    
+
     支持向设备、账号和别名绑定标签，绑定类型由参数target指定；
 
     绑定标签在10分钟内生效；
@@ -92,7 +92,7 @@ cordova plugin add https://github.com/llwwbb/cordova-plugin-AliPush.git --variab
 
     success回调参数为数组
 
-    listTags: function (success, error) 
+    listTags: function (success, error)
 
 **添加别名**
 
@@ -102,7 +102,7 @@ cordova plugin add https://github.com/llwwbb/cordova-plugin-AliPush.git --variab
 
     别名支持128字节。
 
-    addAlias: function (alias, success, error) 
+    addAlias: function (alias, success, error)
 
 **删除别名**
 
@@ -110,7 +110,7 @@ cordova plugin add https://github.com/llwwbb/cordova-plugin-AliPush.git --variab
 
     支持删除指定别名和删除全部别名（alias为null or length = 0）
 
-    removeAlias: function (alias, success, error) 
+    removeAlias: function (alias, success, error)
 
 **查询别名**
 
@@ -118,7 +118,7 @@ cordova plugin add https://github.com/llwwbb/cordova-plugin-AliPush.git --variab
 
     success回调参数为数组
 
-    listAliases: function (success, error) 
+    listAliases: function (success, error)
 
 以下ios only
 

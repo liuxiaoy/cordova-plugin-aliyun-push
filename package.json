@@ -1,20 +1,18 @@
 {
-  "author": {
-    "name": "llwwbb"
-  },
-  "bugs": {
-    "url": "https://github.com/llwwbb/cordova-plugin-AliPush"
-  },
+  "name": "cordova-plugin-aliyun-push",
+  "version": "0.0.1",
+  "description": "this is ali push cordova plugin",
   "cordova": {
-    "id": "cordova-plugin-alipush",
+    "id": "cordova-plugin-aliyun-push",
     "platforms": [
       "android",
       "ios"
     ]
   },
-  "deprecated": false,
-  "description": "this is ali push cordova plugin",
-  "homepage": "https://github.com/llwwbb/cordova-plugin-AliPush",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuxiaoy/cordova-plugin-aliyun-push.git"
+  },
   "keywords": [
     "ecosystem:cordova",
     "cordova-android",
@@ -22,11 +20,13 @@
     "aliyun",
     "push"
   ],
-  "license": "Apache-2.0",
-  "name": "cordova-plugin-alipush",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/llwwbb/cordova-plugin-AliPush.git"
+  "author": {
+    "name": "liuxiaoy"
   },
-  "version": "1.0.1"
+  "deprecated": false,
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/liuxiaoy/cordova-plugin-aliyun-push"
+  },
+  "homepage": "https://github.com/liuxiaoy/cordova-plugin-aliyun-push"
 }
