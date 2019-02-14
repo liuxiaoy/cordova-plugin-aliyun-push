@@ -49,4 +49,4 @@ module.exports = {
 		exec(success, error, "AliPushPlugin", "unbindPhoneNumber", []);
 	}
 
-}
+};
