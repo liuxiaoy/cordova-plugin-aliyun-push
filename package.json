@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-aliyun-push",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "this is ali push cordova plugin",
   "cordova": {
     "id": "cordova-plugin-aliyun-push",
