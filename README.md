@@ -1,10 +1,14 @@
-**安装**
+# cordova-plugin-aliyun-push
+
+使用阿里云移动推送服务
+
+## 安装
 
 `APP_KEY和APP_SECRET必须存在`
 
 cordova plugin add cordova-plugin-aliyun-push --variable APP_KEY=appkey --variable APP_SECRET=appsecret --variable MIID=miid --variable MIKEY=mikey --variable GCMSENDID=gcmsendid --variable GCMAPPID=gcmapplicationid
 
-**辅助弹窗**
+## 辅助弹窗
 
     辅助弹窗可以确保应用后台被清理，仍能收到推送通知
 
@@ -12,7 +16,8 @@ cordova plugin add cordova-plugin-aliyun-push --variable APP_KEY=appkey --variab
 
     服务器端需设置AndroidPopupActivity参数为{package-name}.alipush.AliPushActivity
 
-**初始化。**
+## 使用
+### 初始化
 
     Android在应用启动时初始化并注册阿里云推送，init命令时注册第三方辅助通道
 
@@ -30,11 +35,11 @@ cordova plugin add cordova-plugin-aliyun-push --variable APP_KEY=appkey --variab
 
     "openNotification"：点击通知
 
-**获取设备DeviceId**
+### 获取设备DeviceId
 
     getDeviceId: function (success, error)
 
-**绑定账号**
+### 绑定账号
 
     将应用内账号和推送通道相关联，可以实现按账号的定点消息推送；
 
@@ -44,13 +49,13 @@ cordova plugin add cordova-plugin-aliyun-push --variable APP_KEY=appkey --variab
 
     bindAccount: function (account, success, error)
 
-**解绑账号**
+### 解绑账号
 
     将应用内账号和推送通道取消关联。
 
     unbindAccount: function (success, error)
 
-**绑定标签**
+### 绑定标签
 
     绑定标签到指定目标；
 
@@ -70,7 +75,7 @@ cordova plugin add cordova-plugin-aliyun-push --variable APP_KEY=appkey --variab
 
     bindTag: function (args, success, error)  // args: {target:Number, tags:Array<String>, alias?:string}
 
-**解绑标签**
+### 解绑标签
 
     解绑指定目标标签；
 
@@ -84,7 +89,7 @@ cordova plugin add cordova-plugin-aliyun-push --variable APP_KEY=appkey --variab
 
     unbindTag: function (args, success, error)  // args: {target:Number, tags:Array<String>, alias?:string}
 
-**查询标签**
+### 查询标签
 
     查询目标绑定标签，当前仅支持查询设备标签；
 
@@ -94,7 +99,7 @@ cordova plugin add cordova-plugin-aliyun-push --variable APP_KEY=appkey --variab
 
     listTags: function (success, error)
 
-**添加别名**
+### 添加别名
 
     设备添加别名；
 
@@ -104,7 +109,7 @@ cordova plugin add cordova-plugin-aliyun-push --variable APP_KEY=appkey --variab
 
     addAlias: function (alias, success, error)
 
-**删除别名**
+### 删除别名
 
     删除设备别名；
 
@@ -112,7 +117,7 @@ cordova plugin add cordova-plugin-aliyun-push --variable APP_KEY=appkey --variab
 
     removeAlias: function (alias, success, error)
 
-**查询别名**
+### 查询别名
 
     查询设备别名；
 
@@ -122,20 +127,25 @@ cordova plugin add cordova-plugin-aliyun-push --variable APP_KEY=appkey --variab
 
 以下ios only
 
-**设置角标**
+### 设置角标
 
 	setBadge: function (badge, success, error)
 
-**角标数量与阿里云服务器同步**
+### 角标数量与阿里云服务器同步
 
 	syncBadge: function (badge, success, error)
 
 以下android only
 
-**绑定电话号**
+### 绑定电话号
 
 	bindPhoneNumber: function (phoneNumber, success, error)
 
-**解绑电话号**
+### 解绑电话号
 
 	unbindPhoneNumber: function (success, error)
+
+## 感谢
+
+此项目继承自项目：https://github.com/llwwbb/cordova-plugin-AliPush
+此项目参照的互联网上若干项目
