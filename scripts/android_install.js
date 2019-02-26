@@ -5,7 +5,12 @@ module.exports = function (context) {
         fs = context.requireCordovaModule('fs'),
         shell = context.requireCordovaModule('shelljs'),
         projectRoot = context.opts.projectRoot,
-        plugins = context.opts.plugins || [];
+        pluginDir = context.opts.plugin.dir;
+
+    // android platform available?
+    if (context.opts.cordova.platforms.indexOf("android") === -1) {
+        throw new Error("Android platform has not been added.");
+    }
 
     var ConfigParser = null;
     try {
@@ -15,23 +20,14 @@ module.exports = function (context) {
         ConfigParser = context.requireCordovaModule('cordova-lib/src/configparser/ConfigParser');
     }
 
-    var config = new ConfigParser(path.join(context.opts.projectRoot, "config.xml")),
+    var config = new ConfigParser(path.join(projectRoot, "config.xml")),
         packageName = config.android_packageName() || config.packageName();
 
     // replace dash (-) with underscore (_)
     packageName = packageName.replace(/-/g, "_");
 
-    console.info("Running android-install.Hook: " + context.hook + ", Package: " + packageName + ", Path: " + projectRoot + ".");
-
     if (!packageName) {
-        console.error("Package name could not be found!");
-        return;
-    }
-
-    // android platform available?
-    if (context.opts.cordova.platforms.indexOf("android") === -1) {
-        console.info("Android platform has not been added.");
-        return;
+        throw new Error("Package name could not be found!");
     }
 
     var targetDir = path.join(projectRoot, "platforms", "android", "app", "src", "main", "java", packageName.replace(/\./g, path.sep), "alipush");
@@ -47,7 +43,7 @@ module.exports = function (context) {
         } catch (err) { }
     } else {
         // sync the content
-        fs.readFile(path.join(context.opts.plugin.dir, 'src', 'android', filename), { encoding: 'utf-8' }, function (err, data) {
+        fs.readFile(path.join(pluginDir, 'src', 'android', filename), { encoding: 'utf-8' }, function (err, data) {
             if (err) {
                 throw err;
             }

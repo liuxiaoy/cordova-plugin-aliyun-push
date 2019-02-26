@@ -59,12 +59,11 @@
             <preference name="GCMAPPID" value="$GCMAPPID"/>
         </config-file>
 
-        <hook type="after_plugin_add" src="scripts/androidAfterPrepare.js"/>
+        <hook type="after_plugin_add" src="scripts/afterPluginAdd.js"/>
         <hook type="after_plugin_install" src="scripts/android_install.js"/>
 
-        <hook type="after_prepare" src="scripts/androidAfterPrepare.js"/>
-        <hook type="before_plugin_uninstall" src="scripts/androidBeforePluginUninstall.js"/>
-        <hook type="before_plugin_rm" src="scripts/android_install.js"/>
+        <hook type="before_plugin_uninstall" src="scripts/android_install.js"/>
+        <hook type="before_plugin_rm" src="scripts/beforePluginRemove.js"/>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <meta-data android:name="com.alibaba.app.appkey" android:value="$APP_KEY" />
@@ -105,6 +104,6 @@
         <framework src="push.gradle" custom="true" type="gradleReference" />
         <source-file src="src/android/com/blanktrack/alipush/AliPushPlugin.java" target-dir="src/com/blanktrack/alipush/" />
         <source-file src="src/android/com/blanktrack/alipush/MyMessageReceiver.java" target-dir="src/com/blanktrack/alipush/" />
-        <source-file src="src/android/com/blanktrack/alipush/MyApplication.java" target-dir="src/com/blanktrack/alipush/" />
+        <source-file src="src/android/com/blanktrack/alipush/MainApplication.java" target-dir="src/com/blanktrack/alipush/" />
     </platform>
 </plugin>
