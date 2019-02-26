@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-aliyun-push",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "this is ali push cordova plugin",
   "cordova": {
     "id": "cordova-plugin-aliyun-push",
@@ -24,7 +24,7 @@
   "deprecated": false,
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/liuxiaoy/cordova-plugin-aliyun-push"
+    "url": "https://github.com/liuxiaoy/cordova-plugin-aliyun-push/issues"
   },
   "homepage": "https://github.com/liuxiaoy/cordova-plugin-aliyun-push",
   "engines": [
