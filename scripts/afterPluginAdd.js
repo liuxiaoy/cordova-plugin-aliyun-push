@@ -36,7 +36,7 @@ module.exports = function(context) {
                 }
             }
             var filename = 'MainApplication.java';
-            var pluginAppFliePath = path.join(pluginDir, 'platforms/android/src/com/blanktrack/alipush/', filename);
+            var pluginAppFliePath = path.join(pluginDir, 'src/android/com/blanktrack/alipush/', filename);
             var AppFliePath = path.join(projectRoot, 'platforms/android/app/src/main/java/com/blanktrack/alipush/', filename);
             var appClass = 'com.blanktrack.alipush.MainApplication';
             if (originalApplicationName === appClass) {

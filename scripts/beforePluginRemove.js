@@ -3,7 +3,6 @@
 module.exports = function (context) {
     var path = context.requireCordovaModule('path'),
         fs = context.requireCordovaModule('fs'),
-        pluginDir = context.opts.plugin.dir,
         projectRoot = context.opts.projectRoot;
 
     // android platform available?
