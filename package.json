@@ -27,6 +27,9 @@
     "url": "https://github.com/liuxiaoy/cordova-plugin-aliyun-push/issues"
   },
   "homepage": "https://github.com/liuxiaoy/cordova-plugin-aliyun-push",
+  "dependencies": {
+    "shelljs": "0.5.3"
+  },
   "engines": [
     {
       "name": "cordova-ios",
