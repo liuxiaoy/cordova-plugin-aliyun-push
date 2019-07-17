@@ -1,9 +1,9 @@
 #!/usr/bin/env node
+var path = require('path');
+var fs = require('fs');
 
 module.exports = function (context) {
-    var path = context.requireCordovaModule('path'),
-        fs = context.requireCordovaModule('fs'),
-        projectRoot = context.opts.projectRoot;
+    var projectRoot = context.opts.projectRoot;
 
     // android platform available?
     if (context.opts.cordova.platforms.indexOf("android") === -1) {
