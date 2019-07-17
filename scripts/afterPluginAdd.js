@@ -1,9 +1,9 @@
 #!/usr/bin/env node
+var path = require('path');
+var fs = require('fs');
 
 module.exports = function(context) {
-    var fs = context.requireCordovaModule('fs'),
-        path = context.requireCordovaModule('path'),
-        pluginDir = context.opts.plugin.dir,
+    var pluginDir = context.opts.plugin.dir,
         projectRoot = context.opts.projectRoot;
 
     // android platform available?
