@@ -24,8 +24,8 @@
     <preference name="GCMAPPID" default=" "/>
     <preference name="APP_KEY" />
     <preference name="APP_SECRET" />
-    <dependency id="cordova-plugin-add-swift-support"/>
     <platform name="ios">
+        <dependency id="cordova-plugin-add-swift-support"/>
         <config-file parent="/*" target="config.xml">
             <feature name="AliPushPlugin">
                 <param name="ios-package" value="AliPushPlugin" />
