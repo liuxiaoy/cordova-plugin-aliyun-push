@@ -40,16 +40,13 @@ module.exports = function (context) {
         try {
             fs.unlinkSync(path.join(targetDir, filename));
             shell.rm('-f', targetDir);
-        } catch (err) { }
+        } catch (err) {
+            console.log(err);
+        }
     } else {
         // sync the content
-        fs.readFile(path.join(pluginDir, 'src', 'android', filename), { encoding: 'utf-8' }, function (err, data) {
-            if (err) {
-                throw err;
-            }
-
-            data = data.replace(/__PACKAGE_NAME__/gm, packageName);
-            fs.writeFileSync(path.join(targetDir, filename), data);
-        });
+        var data = fs.readFileSync(path.join(pluginDir, 'src', 'android', filename), { encoding: 'utf-8' });
+        data = data.replace(/__PACKAGE_NAME__/gm, packageName);
+        fs.writeFileSync(path.join(targetDir, filename), data);
     }
 };
