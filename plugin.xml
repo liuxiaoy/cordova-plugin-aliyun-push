@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-plugin-aliyun-push"
-    version="0.1.4">
+    version="0.1.6">
     <name>PushPlugin</name>
 
     <description>AliPush Cordova plugin</description>
@@ -59,10 +59,10 @@
             <preference name="GCMAPPID" value="$GCMAPPID"/>
         </config-file>
 
-        <hook type="after_plugin_add" src="scripts/afterPluginAdd.js"/>
-        <hook type="after_plugin_install" src="scripts/android_install.js"/>
+        <hook type="after_plugin_install" src="scripts/afterPluginInstall.js"/>
+        <hook type="after_plugin_install" src="scripts/handlerPushActivity.js"/>
 
-        <hook type="before_plugin_uninstall" src="scripts/android_install.js"/>
+        <hook type="before_plugin_uninstall" src="scripts/handlerPushActivity.js"/>
         <hook type="before_plugin_rm" src="scripts/beforePluginRemove.js"/>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
