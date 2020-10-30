@@ -9,6 +9,13 @@
       "ios"
     ]
   },
+  "files": [
+    "scripts",
+    "src",
+    "www",
+    "plugin.xml",
+    "push.gradle"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/liuxiaoy/cordova-plugin-aliyun-push.git"
