@@ -1,5 +1,13 @@
+# ignore project config
 
-.idea
-node_modules
-platforms
-plugins
+.DS_Store
+
+/.idea/
+/.vscode
+/.history
+
+/node_modules
+
+test/node_modules
+test/platforms
+test/plugins
