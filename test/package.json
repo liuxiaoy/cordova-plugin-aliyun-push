@@ -16,16 +16,16 @@
     "cordova-android": "8.1.0",
     "cordova-ios": "5.0.1",
     "cordova-plugin-add-swift-support": "2.0.2",
-    "cordova-plugin-aliyun-push": "0.1.3",
+    "cordova-plugin-aliyun-push": "0.1.7-alpha.4",
     "cordova-plugin-whitelist": "1.3.4"
   },
   "cordova": {
     "plugins": {
       "cordova-plugin-aliyun-push": {
-        "APP_KEY": "key",
-        "APP_SECRET": "secret",
-        "MIID": "miid",
-        "MIKEY": "mikey",
+        "APP_KEY": "31759259",
+        "APP_SECRET": "bb9a04b90dd1ac06080f72605d3a5195",
+        "MIID": "2882303761518768806",
+        "MIKEY": "5881876864806",
         "GCMSENDID": " ",
         "GCMAPPID": " "
       },
