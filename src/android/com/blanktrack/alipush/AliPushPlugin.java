@@ -8,10 +8,13 @@ import android.util.Log;
 
 import com.alibaba.sdk.android.push.CloudPushService;
 import com.alibaba.sdk.android.push.CommonCallback;
+import com.alibaba.sdk.android.push.huawei.HuaWeiRegister;
 import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory;
 import com.alibaba.sdk.android.push.register.GcmRegister;
-import com.alibaba.sdk.android.push.register.HuaWeiRegister;
+import com.alibaba.sdk.android.push.register.MeizuRegister;
 import com.alibaba.sdk.android.push.register.MiPushRegister;
+import com.alibaba.sdk.android.push.register.OppoRegister;
+import com.alibaba.sdk.android.push.register.VivoRegister;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -67,10 +70,17 @@ public class AliPushPlugin extends CordovaPlugin {
                 Context applicationContext = cordova.getActivity().getApplicationContext();
                 String MIID = preferences.getString("MIID", "");
                 String MIKEY = preferences.getString("MIKEY", "");
+                String MeizuID = preferences.getString("MeizuID", "");
+                String MeizuKEY = preferences.getString("MeizuKEY", "");
+                String OppoKEY = preferences.getString("OppoKEY", "");
+                String OppoSecret = preferences.getString("OppoSecret", "");
                 String GCMSENDID = preferences.getString("GCMSENDID", "");
                 String GCMAPPID = preferences.getString("GCMAPPID", "");
                 MiPushRegister.register(applicationContext, MIID, MIKEY);
-                HuaWeiRegister.register(applicationContext);
+                HuaWeiRegister.register(cordova.getActivity().getApplication());
+                MeizuRegister.register(applicationContext, MeizuID, MeizuKEY);
+                OppoRegister.register(applicationContext, OppoKEY, OppoSecret);
+                VivoRegister.register(applicationContext);
                 GcmRegister.register(applicationContext, GCMSENDID, GCMAPPID);
                 SharedPreferences sharedPreferences = applicationContext.getSharedPreferences("aliNotiMsg", Context.MODE_PRIVATE);
                 String json = sharedPreferences.getString("msg", "");
