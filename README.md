@@ -6,7 +6,7 @@
 
 `APP_KEY和APP_SECRET必须存在`
 
-cordova plugin add cordova-plugin-aliyun-push --variable APP_KEY=appkey --variable APP_SECRET=appsecret --variable MIID=miid --variable MIKEY=mikey --variable GCMSENDID=gcmsendid --variable GCMAPPID=gcmapplicationid
+cordova plugin add cordova-plugin-aliyun-push --variable APP_KEY=appkey --variable APP_SECRET=appsecret --variable MI_ID=miid --variable MI_KEY=mikey --variable GCM_SENDID=gcmsendid --variable GCM_APPID=gcmapplicationid
 
 ## 辅助弹窗
 
