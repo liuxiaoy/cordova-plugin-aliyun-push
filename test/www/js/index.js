@@ -28,6 +28,9 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+        if (window.AliPushPlugin) {
+            window.AliPushPlugin.init(function () { console.log('ali push init success') }, function (err) { console.log('ali push init fail', err) })
+        }
     },
 
     // Update DOM on a Received Event

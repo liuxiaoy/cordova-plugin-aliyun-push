@@ -2,10 +2,10 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-plugin-aliyun-push"
-    version="0.1.6">
+    version="0.2.0">
     <name>PushPlugin</name>
 
-    <description>AliPush Cordova plugin</description>
+    <description>Aliyun Push Service Cordova plugin</description>
     <author>liuxiaoy</author>
     <keywords>aliyun, push</keywords>
     <license>Apache 2.0</license>
@@ -18,10 +18,14 @@
     <js-module name="AliPushPlugin" src="www/AliPushPlugin.js">
         <clobbers target="AliPushPlugin" />
     </js-module>
-    <preference name="MIID" default=" " />
-    <preference name="MIKEY" default=" " />
-    <preference name="GCMSENDID" default=" "/>
-    <preference name="GCMAPPID" default=" "/>
+    <preference name="MI_ID" default=" " />
+    <preference name="MI_KEY" default=" " />
+    <preference name="MEIZU_ID" default=" "/>
+    <preference name="MEIZU_KEY" default=" "/>
+    <preference name="OPPO_KEY" default=" "/>
+    <preference name="OPPO_SECRET" default=" "/>
+    <preference name="GCM_SENDID" default=" "/>
+    <preference name="GCM_APPID" default=" "/>
     <preference name="APP_KEY" />
     <preference name="APP_SECRET" />
     <platform name="ios">
@@ -53,10 +57,14 @@
             <feature name="AliPushPlugin">
                 <param name="android-package" value="com.blanktrack.alipush.AliPushPlugin" />
             </feature>
-            <preference name="MIID" value="\$MIID"/>
-            <preference name="MIKEY" value="\$MIKEY"/>
-            <preference name="GCMSENDID" value="\$GCMSENDID"/>
-            <preference name="GCMAPPID" value="$GCMAPPID"/>
+            <preference name="MI_ID" value="\$MI_ID"/>
+            <preference name="MI_KEY" value="\$MI_KEY"/>
+            <preference name="MEIZU_ID" value="\$MEIZU_ID"/>
+            <preference name="MEIZU_KEY" value="\$MEIZU_KEY"/>
+            <preference name="OPPO_KEY" value="\$OPPO_KEY"/>
+            <preference name="OPPO_SECRET" value="\$OPPO_SECRET"/>
+            <preference name="GCM_SENDID" value="\$GCM_SENDID"/>
+            <preference name="GCM_APPID" value="\$GCM_APPID"/>
         </config-file>
 
         <hook type="after_plugin_install" src="scripts/afterPluginInstall.js"/>

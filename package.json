@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-aliyun-push",
-  "version": "0.1.6",
+  "version": "0.2.0-alpha.6",
   "description": "this is ali push cordova plugin",
   "cordova": {
     "id": "cordova-plugin-aliyun-push",
@@ -9,6 +9,13 @@
       "ios"
     ]
   },
+  "files": [
+    "scripts",
+    "src",
+    "www",
+    "plugin.xml",
+    "push.gradle"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/liuxiaoy/cordova-plugin-aliyun-push.git"

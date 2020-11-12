@@ -8,10 +8,13 @@ import android.util.Log;
 
 import com.alibaba.sdk.android.push.CloudPushService;
 import com.alibaba.sdk.android.push.CommonCallback;
+import com.alibaba.sdk.android.push.huawei.HuaWeiRegister;
 import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory;
 import com.alibaba.sdk.android.push.register.GcmRegister;
-import com.alibaba.sdk.android.push.register.HuaWeiRegister;
+import com.alibaba.sdk.android.push.register.MeizuRegister;
 import com.alibaba.sdk.android.push.register.MiPushRegister;
+import com.alibaba.sdk.android.push.register.OppoRegister;
+import com.alibaba.sdk.android.push.register.VivoRegister;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -65,13 +68,20 @@ public class AliPushPlugin extends CordovaPlugin {
             case "_init":
             case "init": {
                 Context applicationContext = cordova.getActivity().getApplicationContext();
-                String MIID = preferences.getString("MIID", "");
-                String MIKEY = preferences.getString("MIKEY", "");
-                String GCMSENDID = preferences.getString("GCMSENDID", "");
-                String GCMAPPID = preferences.getString("GCMAPPID", "");
-                MiPushRegister.register(applicationContext, MIID, MIKEY);
-                HuaWeiRegister.register(applicationContext);
-                GcmRegister.register(applicationContext, GCMSENDID, GCMAPPID);
+                String MIId = preferences.getString("MI_ID", "");
+                String MIKey = preferences.getString("MI_KEY", "");
+                String MEIZUId = preferences.getString("MEIZU_ID", "");
+                String MEIZUKey = preferences.getString("MEIZU_KEY", "");
+                String OPPOKey = preferences.getString("OPPO_KEY", "");
+                String OPPOSecret = preferences.getString("OPPO_SECRET", "");
+                String GCMSendId = preferences.getString("GCM_SENDID", "");
+                String GCMAppId = preferences.getString("GCM_APPID", "");
+                MiPushRegister.register(applicationContext, MIId, MIKey);
+                HuaWeiRegister.register(cordova.getActivity().getApplication());
+                MeizuRegister.register(applicationContext, MEIZUId, MEIZUKey);
+                OppoRegister.register(applicationContext, OPPOKey, OPPOSecret);
+                VivoRegister.register(applicationContext);
+                GcmRegister.register(applicationContext, GCMSendId, GCMAppId);
                 SharedPreferences sharedPreferences = applicationContext.getSharedPreferences("aliNotiMsg", Context.MODE_PRIVATE);
                 String json = sharedPreferences.getString("msg", "");
                 PluginResult result;
