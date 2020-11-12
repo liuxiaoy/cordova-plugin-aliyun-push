@@ -1,11 +1,12 @@
 import UserNotifications
 import CloudPushSDK
-@objc(AliPushPlugin) class AliPushPlugin: CDVPlugin, UNUserNotificationCenterDelegate{
-    open static var share: AliPushPlugin?
+
+class AliPushPlugin: CDVPlugin, UNUserNotificationCenterDelegate{
+    static var share: AliPushPlugin?
     static var notificationCache: [ [AnyHashable:Any]]?
     var callbackId:String?
 
-    public func _init(_ cmd: CDVInvokedUrlCommand){
+    @objc func _init(_ cmd: CDVInvokedUrlCommand){
         if(AliPushPlugin.share == nil){
             AliPushPlugin.share = self;
         }
@@ -49,12 +50,12 @@ import CloudPushSDK
         notificationCache!.append(object);
     }
 
-    public func getDeviceId(_ cmd: CDVInvokedUrlCommand){
+    @objc func getDeviceId(_ cmd: CDVInvokedUrlCommand){
         let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAs:  CloudPushSDK.getDeviceId());
         self.commandDelegate.send(result, callbackId: cmd.callbackId);
     }
 
-    public func bindAccount(_ cmd: CDVInvokedUrlCommand){
+    @objc func bindAccount(_ cmd: CDVInvokedUrlCommand){
         if(cmd.arguments.count < 1){
             let result = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "invalid arguments");
             self.commandDelegate.send(result, callbackId: cmd.callbackId);
@@ -73,7 +74,7 @@ import CloudPushSDK
         }
     }
 
-    public func unbindAccount(_ cmd: CDVInvokedUrlCommand){
+    @objc func unbindAccount(_ cmd: CDVInvokedUrlCommand){
         CloudPushSDK.unbindAccount({res in
             if(res!.success){
                 let result = CDVPluginResult(status: CDVCommandStatus_OK);
@@ -86,7 +87,7 @@ import CloudPushSDK
         })
     }
 
-    public func listAlias(_ cmd: CDVInvokedUrlCommand){
+    @objc func listAlias(_ cmd: CDVInvokedUrlCommand){
         CloudPushSDK.listAliases({res in
             if(res!.success){
                 print(res!.data as! String);//逗号分隔的字符串拼接   aa,bb,cc
@@ -100,7 +101,7 @@ import CloudPushSDK
         })
     }
 
-    public func addAlias(_ cmd: CDVInvokedUrlCommand){
+    @objc func addAlias(_ cmd: CDVInvokedUrlCommand){
         if(cmd.arguments.count < 1){
             let result = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "invalid arguments");
             self.commandDelegate.send(result, callbackId: cmd.callbackId);
@@ -119,7 +120,7 @@ import CloudPushSDK
         }
     }
 
-    public func removeAlias(_ cmd: CDVInvokedUrlCommand){
+    @objc func removeAlias(_ cmd: CDVInvokedUrlCommand){
         CloudPushSDK.removeAlias(cmd.argument(at: 0) as? String, withCallback: {res in
             let result:CDVPluginResult;
             if(res!.success){
@@ -132,7 +133,7 @@ import CloudPushSDK
         })
     }
 
-    public func listTags(_ cmd: CDVInvokedUrlCommand){
+    @objc func listTags(_ cmd: CDVInvokedUrlCommand){
         CloudPushSDK.listTags(1, withCallback: {res in
             let result:CDVPluginResult;
             if(res!.success){
@@ -146,7 +147,7 @@ import CloudPushSDK
         })
     }
 
-    public func bindTag(_ cmd: CDVInvokedUrlCommand){
+    @objc func bindTag(_ cmd: CDVInvokedUrlCommand){
         if(cmd.arguments.count < 2){
             let result = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "invalid arguments");
             self.commandDelegate.send(result, callbackId: cmd.callbackId);
@@ -166,7 +167,7 @@ import CloudPushSDK
         })
     }
 
-    public func unbindTag(_ cmd: CDVInvokedUrlCommand){
+    @objc func unbindTag(_ cmd: CDVInvokedUrlCommand){
         if(cmd.arguments.count < 2){
             let result = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "invalid arguments");
             self.commandDelegate.send(result, callbackId: cmd.callbackId);
@@ -186,13 +187,13 @@ import CloudPushSDK
         })
     }
 
-    public func setBadge(_ cmd: CDVInvokedUrlCommand){
+    @objc func setBadge(_ cmd: CDVInvokedUrlCommand){
         // 设置角标数
         UIApplication.shared.applicationIconBadgeNumber = cmd.argument(at: 0) as! Int
         self.commandDelegate.send(CDVPluginResult(status: CDVCommandStatus_OK), callbackId: cmd.callbackId);
     }
 
-    public func syncBadge(_ cmd: CDVInvokedUrlCommand){
+    @objc func syncBadge(_ cmd: CDVInvokedUrlCommand){
         // 同步角标数到服务端
         CloudPushSDK.syncBadgeNum(cmd.argument(at: 0) as! UInt , withCallback: {res in
             let result:CDVPluginResult;
